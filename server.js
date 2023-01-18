@@ -1,15 +1,13 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-const uuid = require('./scripts/uuid.js') // for random ID
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Middleware for parsing application/json and urlencoded data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+// Middleware for serving static files
 app.use(express.static('public'));
 
 // GET route for default page
