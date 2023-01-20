@@ -4,6 +4,7 @@ const router = require('express').Router(); // setting notes as router
 
 // GET for /api/notes used to retrieve db.json and return all saved notes as JSON
 router.get('/api/notes', (req, res) => {
+    console.info(`GET for ${req.path} successful!`)
     res.json(db);
 });
 
@@ -14,27 +15,16 @@ router.post('/api/notes', (req, res) => {
 
     const { title, text} = req.body;
 
-    if (req.body) {
+    if (req.body) { // for if there is a body in the request
         const newNote = {
             title,
             text,
-            note_id: uuidv4(),
+            id: uuidv4(),
         }
-    }
-    // 
+        console.log(`New note: ${newNote}`);
+    };
+
+
 })
-
-// GET for /api/notes used to retrieve db.json and return all saved notes as JSON
-
-// DELETE /api/notes/:id should receive a query that contains the ID of a note to delete in db.json
-// notes.delete('/api/notes/:id', (req, res) => {
-//     const requestedTerm = req.params.id;
-//     for (let i = 0; i < db.length; i++) {
-//         if (requestedTerm === db[i].id) {
-//             // delete the object with that ID
-//         }
-//     }
-//     return res.json("No note with that ID found.")
-// });
 
 module.exports = router
