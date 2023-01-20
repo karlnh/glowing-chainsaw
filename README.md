@@ -10,11 +10,13 @@
   - [Contribution](#Contribution)
   - [License](#License)
   
+  ![Screenshot of website.](screenshot.png)
+  
   ## Description
   Application used to write and save notes.
 
   ## Installation
-  No installation necessary. Visit [https://glowingchainsaw.herokuapp.com/notes](https://glowingchainsaw.herokuapp.com/notes) to use the application.
+  No installation necessary. Visit [https://glowingchainsaw.herokuapp.com/](https://glowingchainsaw.herokuapp.com/) to use the application.
 
   ## Usage
   Click 'get started' and type in a note title and body. Click the floppy disk icon at the top right to add it to your note collection.
