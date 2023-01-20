@@ -1,12 +1,13 @@
 const fs = require('fs');
-const db = require('../db/db.json'); // grabbing db
 const { v4: uuidv4 } = require('uuid'); // https://github.com/uuidjs/uuid#readme
 const router = require('express').Router(); // setting notes as router
 
 // GET for /api/notes used to retrieve db.json and return all saved notes as JSON
 router.get('/notes', (req, res) => {
     console.info(`${req.method} for ${req.path} received.`)
-    res.json(db);
+    fs.readFile('./db/db.json', 'utf8', (err, data) => { // grabbing db
+        res.json(JSON.parse(data));
+    })
 });
 
 // POST /api/notes should receive a new note to save in the request body and add it to db.json, then return new note to the client, as well as giving each note a unique ID when it's saved
@@ -24,7 +25,7 @@ router.post('/notes', (req, res) => {
 
     console.info(
     `New note received.
-    Contents: ${newNote}`
+    Contents: ${newNote.title}, ${newNote.text}, ${newNote.id}`
     );
 
     fs.readFile('./db/db.json', "utf8", (err, data) => {
@@ -42,4 +43,4 @@ router.post('/notes', (req, res) => {
 
 });
 
-module.exports = router
+module.exports = router;
