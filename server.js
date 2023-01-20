@@ -1,14 +1,12 @@
 const express = require('express');
 const { logger } = require('./middleware/logger');
+const htmlRouter = require('./routes/htmlRoutes');
+const apiRouter = require('./routes/apiRoutes');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(logger);
-
-const htmlRouter = require('./routes/htmlRoutes');
-
-const apiRouter = require('./routes/apiRoutes');
 // TO DO: ADD JSON OBJECT STUFF TO APIROUTES
 // TO DO: ADD JSON OBJECT STUFF TO APIROUTES
 // TO DO: ADD JSON OBJECT STUFF TO APIROUTES
