@@ -23,4 +23,4 @@
   Users wishing to contribute ought to consult the license and see what kinds of requirements are allowed for contribution.
 
   ## License
-  [This project is licensed under This project is licensed under the GNU General Public License, version 3.](https://www.gnu.org/licenses/gpl-3.0)
+  [This project is licensed under the GNU General Public License, version 3.](https://www.gnu.org/licenses/gpl-3.0)
