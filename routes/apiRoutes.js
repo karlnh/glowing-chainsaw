@@ -23,12 +23,16 @@ router.post('/api/notes', (req, res) => {
     };
     console.log(`New note: ${newNote}`);
 
-    // add new note to db.json:
-    db.push(newNote);
-    fs.writeFile('../db/db.json', db, (err) =>
-        err ? console.error(err) : console.info('Successfully added new note.')
+    fs.readFile('../db/db.json', "utf8", (err, data) => {
+        const dbJSON = JSON.parse(data);
+        dbJSON.push(newNote);
+        console.info('Pushed new note to parsed data.');
+    })
+    fs.writeFile('../db/db.json', JSON.stringify(dbJSON), err =>
+        err
+        ? console.error(err)
+        : console.info('Successfully added new note.')
     );
-
 });
 
 module.exports = router
