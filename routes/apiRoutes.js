@@ -43,4 +43,8 @@ router.post('/notes', (req, res) => {
 
 });
 
+router.delete('/notes/:id', (req, res) => {
+    console.info(`${req.method} for ${req.path} received.`);
+});
+
 module.exports = router;
