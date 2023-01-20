@@ -33,11 +33,13 @@ router.post('/notes', (req, res) => {
         dbJSON.push(newNote);
         console.info('Pushed new note to parsed data.');
 
-        fs.writeFile('./db/db.json', JSON.stringify(dbJSON), err =>
-        err
-        ? console.error(err)
-        : console.info('Successfully added new note.'));
+        fs.writeFile('./db/db.json', JSON.stringify(dbJSON), err => {
+            err
+            ? res.json(err)
+            : res.json('Successfully added new note.');
+        });
     });
+
 });
 
 module.exports = router
